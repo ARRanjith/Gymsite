@@ -21,20 +21,20 @@ const ICONS = {
 
 const EXERCISES = {
   cardio: [
-    { id: "walk",      name: "Walking",   met: 3.8,  icon: ICONS.walk },
-    { id: "jog",       name: "Jogging",   met: 7.0,  icon: ICONS.jog },
-    { id: "cycle",     name: "Cycling",   met: 7.5,  icon: ICONS.cycle },
-    { id: "swim",      name: "Swimming",  met: 6.0,  icon: ICONS.swim },
-    { id: "treadmill", name: "Treadmill", met: 8.0,  icon: ICONS.treadmill },
-    { id: "skip",      name: "Skipping",  met: 11.0, icon: ICONS.skip },
+    { id: "walk",      name: "Walking",   met: 3.8,  icon: ICONS.walk,      recommended: "30–45 min" },
+    { id: "jog",       name: "Jogging",   met: 7.0,  icon: ICONS.jog,       recommended: "20–30 min" },
+    { id: "cycle",     name: "Cycling",   met: 7.5,  icon: ICONS.cycle,     recommended: "30–45 min" },
+    { id: "swim",      name: "Swimming",  met: 6.0,  icon: ICONS.swim,      recommended: "20–30 min" },
+    { id: "treadmill", name: "Treadmill", met: 8.0,  icon: ICONS.treadmill, recommended: "20–30 min" },
+    { id: "skip",      name: "Skipping",  met: 11.0, icon: ICONS.skip,      recommended: "10–15 min" },
   ],
   strength: [
-    { id: "weights",  name: "Weight Lifting", met: 5.0, icon: ICONS.weights },
-    { id: "pushup",   name: "Push-ups",       met: 8.0, icon: ICONS.pushup },
-    { id: "squat",    name: "Squats",         met: 5.0, icon: ICONS.squat },
-    { id: "deadlift", name: "Deadlift",       met: 6.0, icon: ICONS.deadlift },
-    { id: "pullup",   name: "Pull-ups",       met: 8.0, icon: ICONS.pullup },
-    { id: "plank",    name: "Plank",          met: 4.0, icon: ICONS.plank },
+    { id: "weights",  name: "Weight Lifting", met: 5.0, icon: ICONS.weights,  recommended: "30–45 min" },
+    { id: "pushup",   name: "Push-ups",       met: 8.0, icon: ICONS.pushup,   recommended: "10–15 min" },
+    { id: "squat",    name: "Squats",         met: 5.0, icon: ICONS.squat,    recommended: "10–15 min" },
+    { id: "deadlift", name: "Deadlift",       met: 6.0, icon: ICONS.deadlift, recommended: "15–20 min" },
+    { id: "pullup",   name: "Pull-ups",       met: 8.0, icon: ICONS.pullup,   recommended: "10–15 min" },
+    { id: "plank",    name: "Plank",          met: 4.0, icon: ICONS.plank,    recommended: "5–10 min" },
   ],
 };
 
@@ -73,6 +73,14 @@ const panelMet = document.getElementById("panelMet");
 const panelIcon = document.getElementById("panelIcon");
 const panelFormula = document.getElementById("panelFormula");
 const logList = document.getElementById("logList");
+const bestTimeValue = document.getElementById("bestTimeValue");
+const timerTabs = document.querySelectorAll(".timer-tab");
+const liveTabPanel = document.getElementById("liveTabPanel");
+const manualTabPanel = document.getElementById("manualTabPanel");
+const manualMinutesInput = document.getElementById("manualMinutes");
+const manualCalcBtn = document.getElementById("manualCalcBtn");
+const manualCalorieCount = document.getElementById("manualCalorieCount");
+const manualFormula = document.getElementById("manualFormula");
 
 function weightInKg() {
   const raw = parseFloat(weightInput.value) || 0;
@@ -211,17 +219,45 @@ function openPanel(exercise) {
   panelMet.textContent = `MET ${exercise.met}`;
   panelIcon.innerHTML = exercise.icon;
   panelIcon.style.setProperty("--accent-color", ACCENT[state.mode]);
+  bestTimeValue.textContent = exercise.recommended;
   timerDisplay.textContent = "00:00";
   calorieCount.textContent = "0";
   panelFormula.textContent = `MET ${exercise.met} × 3.5 × body weight ÷ 200, per minute`;
+  manualMinutesInput.value = "";
+  manualCalorieCount.textContent = "0";
+  manualFormula.textContent = `MET ${exercise.met} × 3.5 × body weight ÷ 200, per minute`;
   logList.innerHTML = `<li class="log-empty">No sets logged yet.</li>`;
   startPauseBtn.textContent = "Start";
   startPauseBtn.classList.remove("is-running");
+  switchTab("live");
 
   panel.classList.add("is-open");
   panel.setAttribute("aria-hidden", "false");
   backdrop.classList.add("is-open");
 }
+
+function switchTab(tabName) {
+  timerTabs.forEach((btn) => {
+    const active = btn.dataset.tab === tabName;
+    btn.classList.toggle("is-active", active);
+    btn.setAttribute("aria-selected", active ? "true" : "false");
+  });
+  liveTabPanel.classList.toggle("is-hidden", tabName !== "live");
+  manualTabPanel.classList.toggle("is-hidden", tabName !== "manual");
+  if (tabName === "manual") stopTimer();
+}
+
+timerTabs.forEach((btn) => {
+  btn.addEventListener("click", () => switchTab(btn.dataset.tab));
+});
+
+manualCalcBtn.addEventListener("click", () => {
+  const minutes = parseFloat(manualMinutesInput.value);
+  if (!minutes || minutes <= 0 || !state.activeExercise) return;
+  const kcal = calcCalories(state.activeExercise.met, minutes * 60, weightInKg());
+  manualCalorieCount.textContent = kcal.toFixed(1);
+  logSet(Math.round(minutes * 60), kcal);
+});
 
 function closePanel() {
   stopTimer();

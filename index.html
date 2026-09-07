@@ -82,21 +82,49 @@
     </div>
   </div>
 
-  <div class="timer-panel__clock">
-    <span id="timerDisplay">00:00</span>
+  <div class="best-time" id="bestTime">
+    <span class="best-time__label">Best time for this exercise</span>
+    <span class="best-time__value" id="bestTimeValue">—</span>
   </div>
 
-  <div class="timer-panel__controls">
-    <button class="ctrl-btn ctrl-btn--primary" id="startPauseBtn">Start</button>
-    <button class="ctrl-btn" id="resetBtn">Reset</button>
+  <div class="timer-tabs" role="tablist" aria-label="Timing method">
+    <button class="timer-tab is-active" data-tab="live" role="tab" aria-selected="true">Live stopwatch</button>
+    <button class="timer-tab" data-tab="manual" role="tab" aria-selected="false">Enter your time</button>
   </div>
 
-  <div class="timer-panel__result">
-    <div class="result-figure">
-      <span class="result-figure__num" id="calorieCount">0</span>
-      <span class="result-figure__unit">kcal burned</span>
+  <div class="timer-tab-panel" id="liveTabPanel">
+    <div class="timer-panel__clock">
+      <span id="timerDisplay">00:00</span>
     </div>
-    <p class="result-note" id="panelFormula">—</p>
+
+    <div class="timer-panel__controls">
+      <button class="ctrl-btn ctrl-btn--primary" id="startPauseBtn">Start</button>
+      <button class="ctrl-btn" id="resetBtn">Reset</button>
+    </div>
+
+    <div class="timer-panel__result">
+      <div class="result-figure">
+        <span class="result-figure__num" id="calorieCount">0</span>
+        <span class="result-figure__unit">kcal burned</span>
+      </div>
+      <p class="result-note" id="panelFormula">—</p>
+    </div>
+  </div>
+
+  <div class="timer-tab-panel is-hidden" id="manualTabPanel">
+    <label class="manual-label" for="manualMinutes">Your cardio timing (minutes)</label>
+    <div class="manual-row">
+      <input type="number" id="manualMinutes" min="1" max="300" placeholder="e.g. 25" inputmode="numeric">
+      <button class="ctrl-btn ctrl-btn--primary" id="manualCalcBtn">Calculate</button>
+    </div>
+
+    <div class="timer-panel__result">
+      <div class="result-figure">
+        <span class="result-figure__num" id="manualCalorieCount">0</span>
+        <span class="result-figure__unit">kcal burned</span>
+      </div>
+      <p class="result-note" id="manualFormula">—</p>
+    </div>
   </div>
 
   <div class="timer-panel__log">
