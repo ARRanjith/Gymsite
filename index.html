@@ -13,21 +13,45 @@
 
 <header class="hero">
   <div class="hero__top">
-    <span class="hero__mark">Usman GYM and Fitness center</span>
-  
+    <span class="hero__mark">FITFORGE</span>
+    <span class="hero__tag">Session log</span>
   </div>
   <h1 class="hero__headline">EVERY MINUTE<br>HAS A NUMBER</h1>
   <p class="hero__sub">Pick a movement, start the clock, watch the burn add up in real time. Set your weight once — every session after that is one tap away.</p>
 
-  <div class="hero__weight">
-    <label for="bodyWeight">Your body weight</label>
-    <div class="hero__weight-row">
-      <input type="number" id="bodyWeight" min="20" max="300" value="70" inputmode="decimal">
-      <div class="unit-toggle" role="group" aria-label="Weight unit">
-        <button type="button" class="unit-btn is-active" data-unit="kg">kg</button>
-        <button type="button" class="unit-btn" data-unit="lb">lb</button>
+  <div class="hero__metrics">
+    <div class="hero__weight">
+      <label for="bodyWeight">Your body weight</label>
+      <div class="hero__weight-row">
+        <input type="number" id="bodyWeight" min="20" max="300" value="70" inputmode="decimal">
+        <div class="unit-toggle" role="group" aria-label="Weight unit">
+          <button type="button" class="unit-btn is-active" data-unit="kg">kg</button>
+          <button type="button" class="unit-btn" data-unit="lb">lb</button>
+        </div>
       </div>
     </div>
+
+    <div class="hero__height">
+      <label for="bodyHeight">Your height</label>
+      <div class="hero__weight-row">
+        <input type="number" id="bodyHeight" min="100" max="250" value="170" inputmode="decimal">
+        <div class="unit-toggle" role="group" aria-label="Height unit">
+          <button type="button" class="unit-btn is-active" data-unit="cm">cm</button>
+          <button type="button" class="unit-btn" data-unit="in">in</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bmi-box" id="bmiBox">
+    <div class="bmi-box__figure">
+      <span class="bmi-box__num" id="bmiValue">—</span>
+      <span class="bmi-box__label" id="bmiCategory">Enter weight &amp; height</span>
+    </div>
+    <div class="bmi-box__scale" id="bmiScale">
+      <div class="bmi-box__marker" id="bmiMarker"></div>
+    </div>
+    <p class="bmi-box__note" id="bmiNote"></p>
   </div>
 </header>
 

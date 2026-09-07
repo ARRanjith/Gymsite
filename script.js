@@ -43,6 +43,7 @@ const ACCENT = { cardio: "#D6FF3F", strength: "#FF5A36" };
 let state = {
   mode: "cardio",
   unit: "kg",
+  heightUnit: "cm",
   activeExercise: null,
   seconds: 0,
   running: false,
@@ -52,7 +53,13 @@ let state = {
 
 const grid = document.getElementById("exerciseGrid");
 const weightInput = document.getElementById("bodyWeight");
-const unitBtns = document.querySelectorAll(".unit-btn");
+const heightInput = document.getElementById("bodyHeight");
+const weightUnitBtns = document.querySelectorAll('.hero__weight .unit-btn');
+const heightUnitBtns = document.querySelectorAll('.hero__height .unit-btn');
+const bmiValueEl = document.getElementById("bmiValue");
+const bmiCategoryEl = document.getElementById("bmiCategory");
+const bmiMarker = document.getElementById("bmiMarker");
+const bmiNote = document.getElementById("bmiNote");
 const modeBtns = document.querySelectorAll(".mode-btn");
 const panel = document.getElementById("timerPanel");
 const backdrop = document.getElementById("panelBackdrop");
@@ -111,7 +118,7 @@ modeBtns.forEach((btn) => {
   });
 });
 
-unitBtns.forEach((btn) => {
+weightUnitBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     const newUnit = btn.dataset.unit;
     if (newUnit === state.unit) return;
@@ -120,10 +127,79 @@ unitBtns.forEach((btn) => {
       ? Math.round(current * 2.20462)
       : Math.round(current / 2.20462);
     state.unit = newUnit;
-    unitBtns.forEach((b) => b.classList.toggle("is-active", b === btn));
+    weightUnitBtns.forEach((b) => b.classList.toggle("is-active", b === btn));
     updateLiveCalories();
+    updateBMI();
   });
 });
+
+heightUnitBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const newUnit = btn.dataset.unit;
+    if (newUnit === state.heightUnit) return;
+    const current = parseFloat(heightInput.value) || 0;
+    heightInput.value = newUnit === "in"
+      ? Math.round((current / 2.54) * 10) / 10
+      : Math.round(current * 2.54);
+    state.heightUnit = newUnit;
+    heightUnitBtns.forEach((b) => b.classList.toggle("is-active", b === btn));
+    updateBMI();
+  });
+});
+
+/* ---------- BMI ---------- */
+function heightInMeters() {
+  const raw = parseFloat(heightInput.value) || 0;
+  const cm = state.heightUnit === "cm" ? raw : raw * 2.54;
+  return cm / 100;
+}
+
+function bmiCategory(bmi) {
+  if (bmi < 18.5) return { label: "Underweight", tone: "alert" };
+  if (bmi < 25)   return { label: "Healthy range", tone: "good" };
+  if (bmi < 30)   return { label: "Overweight", tone: "alert" };
+  return { label: "Obese", tone: "alert" };
+}
+
+function updateBMI() {
+  const kg = weightInKg();
+  const m = heightInMeters();
+  if (!kg || !m) {
+    bmiValueEl.textContent = "—";
+    bmiCategoryEl.textContent = "Enter weight & height";
+    bmiNote.textContent = "";
+    bmiMarker.style.left = "0%";
+    return;
+  }
+
+  const bmi = kg / (m * m);
+  const cat = bmiCategory(bmi);
+  bmiValueEl.textContent = bmi.toFixed(1);
+  bmiCategoryEl.textContent = cat.label;
+
+  const clampedPct = Math.min(100, Math.max(0, ((bmi - 15) / 25) * 100));
+  bmiMarker.style.left = `${clampedPct}%`;
+
+  bmiNote.classList.remove("is-alert", "is-good");
+  if (bmi >= 25) {
+    const healthyMaxKg = 24.9 * m * m;
+    const toLose = (kg - healthyMaxKg);
+    const toLoseDisplay = state.unit === "kg" ? toLose : toLose * 2.20462;
+    bmiNote.textContent = `To reach a healthy BMI, losing roughly ${toLoseDisplay.toFixed(1)} ${state.unit} would bring you into range — the cardio and strength timers above can help track that.`;
+    bmiNote.classList.add("is-alert");
+  } else if (bmi < 18.5) {
+    const healthyMinKg = 18.5 * m * m;
+    const toGain = (healthyMinKg - kg);
+    const toGainDisplay = state.unit === "kg" ? toGain : toGain * 2.20462;
+    bmiNote.textContent = `You're below the typical healthy range — gaining roughly ${toGainDisplay.toFixed(1)} ${state.unit} of healthy weight would bring you into range.`;
+    bmiNote.classList.add("is-alert");
+  } else {
+    bmiNote.textContent = "You're within the typical healthy BMI range — nice work staying consistent.";
+    bmiNote.classList.add("is-good");
+  }
+}
+
+heightInput.addEventListener("input", updateBMI);
 
 function openPanel(exercise) {
   stopTimer();
@@ -222,6 +298,10 @@ resetBtn.addEventListener("click", () => {
   startPauseBtn.classList.remove("is-running");
 });
 
-weightInput.addEventListener("input", updateLiveCalories);
+weightInput.addEventListener("input", () => {
+  updateLiveCalories();
+  updateBMI();
+});
 
 renderGrid();
+updateBMI();
