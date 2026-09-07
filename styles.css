@@ -254,6 +254,142 @@ main{ max-width: 780px; margin: 0 auto; padding: 32px 24px 64px; }
   color: var(--muted);
 }
 
+/* ---------- Strength: muscle group navigation ---------- */
+.grid-header{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  grid-column: 1 / -1;
+}
+.grid-back{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.grid-header__title{
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  color: var(--accent-color, var(--ember));
+}
+.exercise-name-card{
+  grid-column: span 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  padding: 16px 18px;
+}
+@media (max-width: 560px){
+  .exercise-name-card{ grid-column: span 2; }
+}
+.exercise-name-card__met{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+/* ---------- Animation stage (strength exercise demo) ---------- */
+.anim-stage{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px 0 4px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+.anim-stage.is-hidden{ display: none; }
+.rig{
+  width: 130px;
+  height: 170px;
+  color: var(--accent-color, var(--ember));
+  overflow: visible;
+}
+.rig-figure line,
+.rig-worklimb line{
+  stroke: currentColor;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.rig-figure circle{
+  stroke: currentColor;
+  stroke-width: 3;
+  fill: none;
+}
+.rig-equip{
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform-origin: 60px 84px;
+}
+.rig-worklimb{
+  display: none;
+  transform-origin: 60px 88px;
+}
+.rig-figure{
+  transform-origin: 60px 90px;
+}
+.rig.pose-lying .rig-figure-wrap{
+  transform: rotate(90deg);
+  transform-origin: 60px 90px;
+}
+
+/* Equipment glyph visibility */
+.rig .equip-dumbbell,
+.rig .equip-barbell,
+.rig .equip-cable,
+.rig .equip-bar{ display: none; }
+.rig.equip-is-dumbbell .equip-dumbbell{ display: block; }
+.rig.equip-is-barbell .equip-barbell{ display: block; }
+.rig.equip-is-cable .equip-cable{ display: block; }
+.rig.equip-is-bar .equip-bar{ display: block; }
+
+/* ---- Keyframes ---- */
+@keyframes equipUp{ from{ transform: translateY(0); } to{ transform: translateY(-26px); } }
+@keyframes equipDown{ from{ transform: translateY(-22px); } to{ transform: translateY(4px); } }
+@keyframes equipPull{ from{ transform: translateX(0); } to{ transform: translateX(-18px); } }
+@keyframes equipFly{ from{ transform: translateX(-16px); } to{ transform: translateX(16px); } }
+@keyframes bodyUp{ from{ transform: translateY(0); } to{ transform: translateY(-18px); } }
+@keyframes bodySquat{ from{ transform: translateY(0); } to{ transform: translateY(14px); } }
+@keyframes bodyBob{ from{ transform: translateY(0); } to{ transform: translateY(6px); } }
+@keyframes bodyRotate{ from{ transform: rotate(0deg); } to{ transform: rotate(22deg); } }
+@keyframes bodyRotateSmall{ from{ transform: rotate(0deg); } to{ transform: rotate(14deg); } }
+@keyframes bodyTwist{ from{ transform: rotate(-16deg); } to{ transform: rotate(16deg); } }
+@keyframes bodyShake{ from{ transform: translateY(0); } to{ transform: translateY(-2px); } }
+@keyframes limbSwing{ from{ transform: rotate(0deg); } to{ transform: rotate(-40deg); } }
+
+/* ---- Class → keyframe mapping ---- */
+.rig.anim-curl .rig-equip{ animation: equipUp 1.2s ease-in-out infinite alternate; }
+.rig.anim-press .rig-equip{ animation: equipUp 1.3s ease-in-out infinite alternate; }
+.rig.anim-pushdown .rig-equip{ animation: equipDown 1.2s ease-in-out infinite alternate; }
+.rig.anim-pull .rig-equip{ animation: equipPull 1.1s ease-in-out infinite alternate; }
+.rig.anim-fly .rig-equip{ animation: equipFly 1.3s ease-in-out infinite alternate; }
+.rig.anim-bodyup .rig-figure{ animation: bodyUp 1.2s ease-in-out infinite alternate; }
+.rig.anim-squat .rig-figure{ animation: bodySquat 1.3s ease-in-out infinite alternate; }
+.rig.anim-pushup .rig-figure{ animation: bodyBob 1s ease-in-out infinite alternate; }
+.rig.anim-hinge .rig-figure{ animation: bodyRotate 1.4s ease-in-out infinite alternate; }
+.rig.anim-crunch .rig-figure{ animation: bodyRotateSmall 1s ease-in-out infinite alternate; }
+.rig.anim-twist .rig-figure{ animation: bodyTwist 1.2s ease-in-out infinite alternate; }
+.rig.anim-hiplift .rig-figure{ animation: bodyBob 1.1s ease-in-out infinite alternate; }
+.rig.anim-hold .rig-figure{ animation: bodyShake 2.2s ease-in-out infinite alternate; }
+.rig.anim-legraise .rig-worklimb{ display: block; animation: limbSwing 1.2s ease-in-out infinite alternate; }
+.rig.anim-kickleg .rig-worklimb{ display: block; animation: limbSwing 1.1s ease-in-out infinite alternate; }
+.rig.anim-kickarm .rig-worklimb{ display: block; animation: limbSwing 1.1s ease-in-out infinite alternate; }
+.rig.anim-legraise .rig-legR,
+.rig.anim-kickleg .rig-legR{ display: none; }
+.rig.anim-kickarm .rig-armR{ display: none; }
+
 /* ---------- Timer panel ---------- */
 .panel-backdrop{
   position: fixed; inset: 0;

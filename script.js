@@ -11,12 +11,17 @@ const ICONS = {
   swim: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="6" r="1.8"/><path d="M4 12l4-2 4 2 3-2"/><path d="M2 17c1.5 1.3 3 1.3 4.5 0s3-1.3 4.5 0 3 1.3 4.5 0 3-1.3 4.5 0"/><path d="M11 10l4 2"/></svg>`,
   treadmill: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="1.8"/><path d="M12 8l-2 3 2 3 3 1"/><path d="M9 11l-2 1"/><rect x="2" y="18" width="18" height="2.4" rx="1"/><path d="M4 18v-2"/></svg>`,
   skip: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="1.8"/><path d="M9 8h6l-1 6h-4z"/><path d="M9 14l-2 6"/><path d="M15 14l2 6"/><path d="M6 9c-2 1-2 5 0 7"/><path d="M18 9c2 1 2 5 0 7"/></svg>`,
-  pushup: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="7" r="1.8"/><path d="M16.5 8.5L6 14"/><path d="M6 14l-2.5 1.5"/><path d="M6 14l3 4"/><path d="M9 18l4-1"/><path d="M13 17l3-3"/></svg>`,
-  squat: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M8 9h8"/><path d="M9 9l-1 6 2 6"/><path d="M15 9l1 6-2 6"/><path d="M9 15h6"/></svg>`,
-  deadlift: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M9 9l-2 5 2 3 5-1 2-3-2-5z"/><path d="M3 15h4"/><path d="M17 15h4"/><rect x="1.5" y="13.5" width="3" height="3" rx="0.5"/><rect x="19.5" y="13.5" width="3" height="3" rx="0.5"/></svg>`,
-  pullup: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16"/><path d="M7 4v3"/><path d="M17 4v3"/><circle cx="12" cy="10.5" r="1.8"/><path d="M7 7l5 5 5-5"/><path d="M12 12.5v6"/><path d="M9 16l3 2.5 3-2.5"/></svg>`,
-  plank: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.5" cy="9" r="1.8"/><path d="M6 10.5l3 2h9"/><path d="M9 12.5l-2 5"/><path d="M18 12.5v5"/></svg>`,
-  weights: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12h10"/><rect x="2" y="9" width="3" height="6" rx="0.8"/><rect x="19" y="9" width="3" height="6" rx="0.8"/><rect x="5.5" y="7.5" width="2" height="9" rx="0.6"/><rect x="16.5" y="7.5" width="2" height="9" rx="0.6"/></svg>`,
+};
+
+const MUSCLE_ICONS = {
+  biceps: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="6" r="2"/><path d="M7 8v4"/><path d="M7 12c0 3 2 4 5 4"/><path d="M12 16c2.5 0 4-1.5 4-3.5 0-1.5-1-2.5-2.5-2.5-1 0-1.5.6-1.5 1.5 0 .8.6 1.3 1.3 1.3"/><path d="M15.5 17l1.5 3"/></svg>`,
+  triceps: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="6" r="2"/><path d="M17 8v4"/><path d="M17 12c0 3-2 4-5 4"/><path d="M12 16c-1.5 1-3 .5-3-1 0-1 .8-1.5 1.6-1.2"/><path d="M8.5 17L7 20"/></svg>`,
+  chest: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M12 8c-1.5-2-6-2-7 1s1 6 7 4"/><path d="M12 8c1.5-2 6-2 7 1s-1 6-7 4"/></svg>`,
+  lats: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.8"/><path d="M12 7v10"/><path d="M12 8l-8 5"/><path d="M12 8l8 5"/><path d="M4 13l2 6"/><path d="M20 13l-2 6"/></svg>`,
+  back: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.8"/><path d="M12 7v13"/><path d="M8 10h8"/><path d="M8.5 14h7"/><path d="M9 18h6"/></svg>`,
+  legs: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M10 8h4"/><path d="M10.5 8l-1.5 6-3 6"/><path d="M13.5 8l1.5 6-1 6"/></svg>`,
+  abs: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="4" width="8" height="16" rx="3"/><path d="M8 9h8"/><path d="M8 13.5h8"/><path d="M12 4v16"/></svg>`,
+  glutes: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-4 0-7 3-7 7 0 4 3 7 7 7s7-3 7-7c0-4-3-7-7-7z"/><path d="M12 5v14"/></svg>`,
 };
 
 const EXERCISES = {
@@ -28,14 +33,72 @@ const EXERCISES = {
     { id: "treadmill", name: "Treadmill", met: 8.0,  icon: ICONS.treadmill, recommended: "20–30 min" },
     { id: "skip",      name: "Skipping",  met: 11.0, icon: ICONS.skip,      recommended: "10–15 min" },
   ],
-  strength: [
-    { id: "weights",  name: "Weight Lifting", met: 5.0, icon: ICONS.weights,  recommended: "30–45 min" },
-    { id: "pushup",   name: "Push-ups",       met: 8.0, icon: ICONS.pushup,   recommended: "10–15 min" },
-    { id: "squat",    name: "Squats",         met: 5.0, icon: ICONS.squat,    recommended: "10–15 min" },
-    { id: "deadlift", name: "Deadlift",       met: 6.0, icon: ICONS.deadlift, recommended: "15–20 min" },
-    { id: "pullup",   name: "Pull-ups",       met: 8.0, icon: ICONS.pullup,   recommended: "10–15 min" },
-    { id: "plank",    name: "Plank",          met: 4.0, icon: ICONS.plank,    recommended: "5–10 min" },
-  ],
+};
+
+const STRENGTH_DB = {
+  biceps: { name: "Biceps", icon: MUSCLE_ICONS.biceps, exercises: [
+    { name: "Standing Dumbbell Curl", met: 3.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "curl" },
+    { name: "Barbell Curl",           met: 4.0, recommended: "10–15 min", equip: "barbell",  pose: "standing", anim: "curl" },
+    { name: "Hammer Curl",            met: 3.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "curl" },
+    { name: "Preacher Curl",          met: 3.5, recommended: "8–12 min",  equip: "dumbbell", pose: "standing", anim: "curl" },
+    { name: "Concentration Curl",     met: 3.2, recommended: "8–12 min",  equip: "dumbbell", pose: "standing", anim: "curl" },
+    { name: "Incline Dumbbell Curl",  met: 3.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "curl" },
+    { name: "Chin-Up",                met: 8.0, recommended: "5–10 min",  equip: "bar",        pose: "standing", anim: "bodyup" },
+  ]},
+  triceps: { name: "Triceps", icon: MUSCLE_ICONS.triceps, exercises: [
+    { name: "Tricep Pushdown",          met: 3.5, recommended: "10–15 min", equip: "cable",     pose: "standing", anim: "pushdown" },
+    { name: "Skull Crushers",           met: 3.5, recommended: "8–12 min",  equip: "barbell",   pose: "lying",    anim: "press" },
+    { name: "Overhead Tricep Extension",met: 3.5, recommended: "10–15 min", equip: "dumbbell",  pose: "standing", anim: "press" },
+    { name: "Close-Grip Bench Press",   met: 5.0, recommended: "10–15 min", equip: "barbell",   pose: "lying",    anim: "press" },
+    { name: "Tricep Dips",              met: 6.0, recommended: "8–12 min",  equip: "bodyweight",pose: "standing", anim: "bodyup" },
+    { name: "Kickback",                 met: 3.2, recommended: "8–12 min",  equip: "dumbbell",  pose: "standing", anim: "kickarm" },
+  ]},
+  chest: { name: "Chest", icon: MUSCLE_ICONS.chest, exercises: [
+    { name: "Bench Press",         met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "lying",    anim: "press" },
+    { name: "Incline Bench Press", met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "lying",    anim: "press" },
+    { name: "Dumbbell Fly",        met: 4.0, recommended: "8–12 min",  equip: "dumbbell",   pose: "lying",    anim: "fly" },
+    { name: "Push-Up",             met: 8.0, recommended: "10–15 min", equip: "bodyweight", pose: "lying",    anim: "pushup" },
+    { name: "Cable Crossover",     met: 4.0, recommended: "10–15 min", equip: "cable",      pose: "standing", anim: "fly" },
+    { name: "Chest Dip",           met: 6.0, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "bodyup" },
+  ]},
+  lats: { name: "Lats", icon: MUSCLE_ICONS.lats, exercises: [
+    { name: "Lat Pulldown",           met: 4.0, recommended: "10–15 min", equip: "cable",    pose: "standing", anim: "pushdown" },
+    { name: "Pull-Up",                met: 8.0, recommended: "5–10 min",  equip: "bar",       pose: "standing", anim: "bodyup" },
+    { name: "Straight-Arm Pulldown",  met: 4.0, recommended: "8–12 min",  equip: "cable",    pose: "standing", anim: "pushdown" },
+    { name: "Single-Arm Dumbbell Row",met: 4.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "pull" },
+    { name: "Wide-Grip Pulldown",     met: 4.0, recommended: "10–15 min", equip: "cable",    pose: "standing", anim: "pushdown" },
+  ]},
+  back: { name: "Back", icon: MUSCLE_ICONS.back, exercises: [
+    { name: "Barbell Row",     met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "pull" },
+    { name: "Seated Cable Row",met: 4.5, recommended: "10–15 min", equip: "cable",      pose: "standing", anim: "pull" },
+    { name: "Deadlift",        met: 6.0, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "hinge" },
+    { name: "T-Bar Row",       met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "pull" },
+    { name: "Superman",        met: 3.0, recommended: "5–10 min",  equip: "bodyweight", pose: "lying",    anim: "hinge" },
+  ]},
+  legs: { name: "Legs", icon: MUSCLE_ICONS.legs, exercises: [
+    { name: "Squat",         met: 5.0, recommended: "10–20 min", equip: "barbell",    pose: "standing", anim: "squat" },
+    { name: "Leg Press",     met: 5.0, recommended: "10–15 min", equip: "bodyweight", pose: "standing", anim: "squat" },
+    { name: "Lunges",        met: 4.0, recommended: "10–15 min", equip: "dumbbell",   pose: "standing", anim: "squat" },
+    { name: "Leg Extension", met: 3.5, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "kickleg" },
+    { name: "Leg Curl",      met: 3.5, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "kickleg" },
+    { name: "Calf Raise",    met: 3.0, recommended: "8–12 min",  equip: "dumbbell",   pose: "standing", anim: "kickleg" },
+  ]},
+  abs: { name: "Abs", icon: MUSCLE_ICONS.abs, exercises: [
+    { name: "Crunch",          met: 3.0, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "crunch" },
+    { name: "Plank",           met: 4.0, recommended: "3–8 min",  equip: "bodyweight", pose: "lying", anim: "hold" },
+    { name: "Sit-Up",          met: 3.5, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "crunch" },
+    { name: "Leg Raise",       met: 3.5, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "legraise" },
+    { name: "Russian Twist",   met: 4.0, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "twist" },
+    { name: "Bicycle Crunch",  met: 4.5, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "crunch" },
+  ]},
+  glutes: { name: "Glutes", icon: MUSCLE_ICONS.glutes, exercises: [
+    { name: "Hip Thrust",           met: 4.5, recommended: "10–15 min", equip: "barbell",    pose: "lying",    anim: "hiplift" },
+    { name: "Glute Bridge",         met: 3.5, recommended: "8–12 min",  equip: "bodyweight", pose: "lying",    anim: "hiplift" },
+    { name: "Bulgarian Split Squat",met: 5.0, recommended: "10–15 min", equip: "dumbbell",   pose: "standing", anim: "squat" },
+    { name: "Cable Kickback",       met: 3.5, recommended: "8–12 min",  equip: "cable",      pose: "standing", anim: "kickleg" },
+    { name: "Romanian Deadlift",    met: 5.5, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "hinge" },
+    { name: "Donkey Kick",          met: 3.0, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "kickleg" },
+  ]},
 };
 
 const ACCENT = { cardio: "#D6FF3F", strength: "#FF5A36" };
@@ -44,6 +107,7 @@ let state = {
   mode: "cardio",
   unit: "kg",
   heightUnit: "cm",
+  selectedMuscle: null,
   activeExercise: null,
   seconds: 0,
   running: false,
@@ -71,6 +135,7 @@ const calorieCount = document.getElementById("calorieCount");
 const panelName = document.getElementById("panelName");
 const panelMet = document.getElementById("panelMet");
 const panelIcon = document.getElementById("panelIcon");
+const animStage = document.getElementById("animStage");
 const panelFormula = document.getElementById("panelFormula");
 const logList = document.getElementById("logList");
 const bestTimeValue = document.getElementById("bestTimeValue");
@@ -101,14 +166,64 @@ function formatTime(totalSeconds) {
 function renderGrid() {
   grid.innerHTML = "";
   grid.style.setProperty("--accent-color", ACCENT[state.mode]);
-  EXERCISES[state.mode].forEach((ex) => {
+
+  if (state.mode === "cardio") {
+    EXERCISES.cardio.forEach((ex) => {
+      const card = document.createElement("button");
+      card.className = "exercise-card";
+      card.style.setProperty("--accent-color", ACCENT.cardio);
+      card.innerHTML = `
+        <span class="exercise-card__icon">${ex.icon}</span>
+        <span class="exercise-card__name">${ex.name}</span>
+        <span class="exercise-card__met">MET ${ex.met}</span>
+      `;
+      card.addEventListener("click", () => openPanel(ex));
+      grid.appendChild(card);
+    });
+    return;
+  }
+
+  // Strength mode
+  if (!state.selectedMuscle) {
+    Object.entries(STRENGTH_DB).forEach(([key, muscle]) => {
+      const card = document.createElement("button");
+      card.className = "exercise-card";
+      card.style.setProperty("--accent-color", ACCENT.strength);
+      card.innerHTML = `
+        <span class="exercise-card__icon">${muscle.icon}</span>
+        <span class="exercise-card__name">${muscle.name}</span>
+        <span class="exercise-card__met">${muscle.exercises.length} exercises</span>
+      `;
+      card.addEventListener("click", () => {
+        state.selectedMuscle = key;
+        renderGrid();
+      });
+      grid.appendChild(card);
+    });
+    return;
+  }
+
+  const muscle = STRENGTH_DB[state.selectedMuscle];
+
+  const header = document.createElement("div");
+  header.className = "grid-header";
+  header.innerHTML = `
+    <button class="grid-back" id="backToMuscles">&larr; Muscles</button>
+    <span class="grid-header__title" style="--accent-color:${ACCENT.strength}">${muscle.name}</span>
+  `;
+  grid.appendChild(header);
+  header.querySelector("#backToMuscles").addEventListener("click", () => {
+    state.selectedMuscle = null;
+    renderGrid();
+  });
+
+  muscle.exercises.forEach((ex) => {
     const card = document.createElement("button");
-    card.className = "exercise-card";
-    card.style.setProperty("--accent-color", ACCENT[state.mode]);
+    card.className = "exercise-card exercise-name-card";
+    card.style.setProperty("--accent-color", ACCENT.strength);
     card.innerHTML = `
-      <span class="exercise-card__icon">${ex.icon}</span>
       <span class="exercise-card__name">${ex.name}</span>
-      <span class="exercise-card__met">MET ${ex.met}</span>
+      <span class="exercise-name-card__met">MET ${ex.met}</span>
     `;
     card.addEventListener("click", () => openPanel(ex));
     grid.appendChild(card);
@@ -118,6 +233,7 @@ function renderGrid() {
 modeBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     state.mode = btn.dataset.mode;
+    state.selectedMuscle = null;
     modeBtns.forEach((b) => {
       b.classList.toggle("is-active", b === btn);
       b.setAttribute("aria-selected", b === btn ? "true" : "false");
@@ -209,6 +325,51 @@ function updateBMI() {
 
 heightInput.addEventListener("input", updateBMI);
 
+function buildRigSVG(exercise) {
+  const isArmLimb = exercise.anim === "kickarm";
+  const worklimbOrigin = isArmLimb ? "60px 48px" : "60px 88px";
+  const worklimbPath = isArmLimb
+    ? `<line x1="60" y1="48" x2="80" y2="72"/>`
+    : `<line x1="60" y1="88" x2="80" y2="130"/>`;
+
+  return `
+    <svg class="rig anim-${exercise.anim} pose-${exercise.pose} equip-is-${exercise.equip}" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+      <g class="rig-figure-wrap">
+        <g class="rig-figure">
+          <circle class="rig-head" cx="60" cy="28" r="10"/>
+          <line class="rig-torso" x1="60" y1="38" x2="60" y2="88"/>
+          <line class="rig-armL" x1="60" y1="48" x2="42" y2="72"/>
+          <line class="rig-armR" x1="60" y1="48" x2="78" y2="72"/>
+          <line class="rig-legL" x1="60" y1="88" x2="46" y2="138"/>
+          <line class="rig-legR" x1="60" y1="88" x2="74" y2="138"/>
+        </g>
+      </g>
+      <g class="rig-worklimb" style="transform-origin:${worklimbOrigin}">
+        ${worklimbPath}
+      </g>
+      <g class="rig-equip">
+        <g class="equip-dumbbell">
+          <line x1="45" y1="80" x2="65" y2="80"/>
+          <circle cx="42" cy="80" r="5"/>
+          <circle cx="68" cy="80" r="5"/>
+        </g>
+        <g class="equip-barbell">
+          <line x1="18" y1="76" x2="102" y2="76"/>
+          <rect x="12" y="70" width="8" height="12"/>
+          <rect x="100" y="70" width="8" height="12"/>
+        </g>
+        <g class="equip-cable">
+          <line x1="60" y1="0" x2="60" y2="76"/>
+          <rect x="52" y="76" width="16" height="10"/>
+        </g>
+        <g class="equip-bar">
+          <line x1="20" y1="8" x2="100" y2="8"/>
+        </g>
+      </g>
+    </svg>
+  `;
+}
+
 function openPanel(exercise) {
   stopTimer();
   state.activeExercise = exercise;
@@ -217,8 +378,21 @@ function openPanel(exercise) {
   panel.style.setProperty("--accent-color", ACCENT[state.mode]);
   panelName.textContent = exercise.name;
   panelMet.textContent = `MET ${exercise.met}`;
-  panelIcon.innerHTML = exercise.icon;
+  if (exercise.icon) {
+    panelIcon.innerHTML = exercise.icon;
+    panelIcon.style.display = "";
+  } else {
+    panelIcon.style.display = "none";
+  }
   panelIcon.style.setProperty("--accent-color", ACCENT[state.mode]);
+
+  if (exercise.anim) {
+    animStage.innerHTML = buildRigSVG(exercise);
+    animStage.classList.remove("is-hidden");
+  } else {
+    animStage.innerHTML = "";
+    animStage.classList.add("is-hidden");
+  }
   bestTimeValue.textContent = exercise.recommended;
   timerDisplay.textContent = "00:00";
   calorieCount.textContent = "0";
