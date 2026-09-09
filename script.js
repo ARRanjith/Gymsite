@@ -136,6 +136,11 @@ const panelName = document.getElementById("panelName");
 const panelMet = document.getElementById("panelMet");
 const panelIcon = document.getElementById("panelIcon");
 const animStage = document.getElementById("animStage");
+const animStageInner = document.getElementById("animStageInner");
+const animFullscreen = document.getElementById("animFullscreen");
+const animFullscreenStage = document.getElementById("animFullscreenStage");
+const animFullscreenLabel = document.getElementById("animFullscreenLabel");
+const animFullscreenClose = document.getElementById("animFullscreenClose");
 const panelFormula = document.getElementById("panelFormula");
 const logList = document.getElementById("logList");
 const bestTimeValue = document.getElementById("bestTimeValue");
@@ -325,23 +330,46 @@ function updateBMI() {
 
 heightInput.addEventListener("input", updateBMI);
 
-function buildRigSVG(exercise) {
+const HIGHLIGHT_ZONES = {
+  biceps:  { cx: 70, cy: 60,  rx: 9,  ry: 12 },
+  triceps: { cx: 70, cy: 62,  rx: 9,  ry: 12 },
+  chest:   { cx: 60, cy: 54,  rx: 20, ry: 12 },
+  lats:    { cx: 60, cy: 62,  rx: 22, ry: 16 },
+  back:    { cx: 60, cy: 58,  rx: 20, ry: 16 },
+  legs:    { cx: 60, cy: 108, rx: 16, ry: 24 },
+  abs:     { cx: 60, cy: 74,  rx: 13, ry: 16 },
+  glutes:  { cx: 60, cy: 92,  rx: 18, ry: 14 },
+};
+
+function buildRigSVG(exercise, muscleKey) {
   const isArmLimb = exercise.anim === "kickarm";
   const worklimbOrigin = isArmLimb ? "60px 48px" : "60px 88px";
   const worklimbPath = isArmLimb
     ? `<line x1="60" y1="48" x2="80" y2="72"/>`
     : `<line x1="60" y1="88" x2="80" y2="130"/>`;
+  const zone = HIGHLIGHT_ZONES[muscleKey];
+  const highlightMarkup = zone
+    ? `<ellipse class="rig-highlight" cx="${zone.cx}" cy="${zone.cy}" rx="${zone.rx}" ry="${zone.ry}"/>`
+    : "";
 
   return `
     <svg class="rig anim-${exercise.anim} pose-${exercise.pose} equip-is-${exercise.equip}" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="muscleGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FF5A36" stop-opacity="0.95"/>
+          <stop offset="55%" stop-color="#FF5A36" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#FF5A36" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
       <g class="rig-figure-wrap">
         <g class="rig-figure">
-          <circle class="rig-head" cx="60" cy="28" r="10"/>
           <line class="rig-torso" x1="60" y1="38" x2="60" y2="88"/>
           <line class="rig-armL" x1="60" y1="48" x2="42" y2="72"/>
           <line class="rig-armR" x1="60" y1="48" x2="78" y2="72"/>
           <line class="rig-legL" x1="60" y1="88" x2="46" y2="138"/>
           <line class="rig-legR" x1="60" y1="88" x2="74" y2="138"/>
+          ${highlightMarkup}
+          <circle class="rig-head" cx="60" cy="28" r="11"/>
         </g>
       </g>
       <g class="rig-worklimb" style="transform-origin:${worklimbOrigin}">
@@ -387,10 +415,10 @@ function openPanel(exercise) {
   panelIcon.style.setProperty("--accent-color", ACCENT[state.mode]);
 
   if (exercise.anim) {
-    animStage.innerHTML = buildRigSVG(exercise);
+    animStageInner.innerHTML = buildRigSVG(exercise, state.selectedMuscle);
     animStage.classList.remove("is-hidden");
   } else {
-    animStage.innerHTML = "";
+    animStageInner.innerHTML = "";
     animStage.classList.add("is-hidden");
   }
   bestTimeValue.textContent = exercise.recommended;
@@ -444,6 +472,27 @@ closePanelBtn.addEventListener("click", closePanel);
 backdrop.addEventListener("click", closePanel);
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && panel.classList.contains("is-open")) closePanel();
+  if (e.key === "Escape" && animFullscreen.classList.contains("is-open")) closeFullscreen();
+});
+
+function openFullscreen() {
+  if (!state.activeExercise || !state.activeExercise.anim) return;
+  animFullscreenStage.innerHTML = buildRigSVG(state.activeExercise, state.selectedMuscle);
+  animFullscreenStage.querySelector(".rig").classList.add("rig--large");
+  animFullscreenLabel.textContent = state.activeExercise.name;
+  animFullscreen.classList.add("is-open");
+  animFullscreen.setAttribute("aria-hidden", "false");
+}
+
+function closeFullscreen() {
+  animFullscreen.classList.remove("is-open");
+  animFullscreen.setAttribute("aria-hidden", "true");
+}
+
+animStage.addEventListener("click", openFullscreen);
+animFullscreenClose.addEventListener("click", closeFullscreen);
+animFullscreen.addEventListener("click", (e) => {
+  if (e.target === animFullscreen) closeFullscreen();
 });
 
 function updateLiveCalories() {

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FitForge — Train on the Clock</title>
+<title>Ranjith Fitness Center — Train on the Clock</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 
 <header class="hero">
   <div class="hero__top">
-    <span class="hero__mark">FITFORGE</span>
+    <span class="hero__mark">RANJITH FITNESS CENTER</span>
     <span class="hero__tag">Session log</span>
   </div>
   <h1 class="hero__headline">EVERY MINUTE<br>HAS A NUMBER</h1>
@@ -87,7 +87,10 @@
     <span class="best-time__value" id="bestTimeValue">—</span>
   </div>
 
-  <div class="anim-stage is-hidden" id="animStage"></div>
+  <div class="anim-stage is-hidden" id="animStage">
+    <span class="anim-stage__expand" id="animStageExpandIcon">&#10530;</span>
+    <div class="anim-stage__inner" id="animStageInner"></div>
+  </div>
 
   <div class="timer-tabs" role="tablist" aria-label="Timing method">
     <button class="timer-tab is-active" data-tab="live" role="tab" aria-selected="true">Live stopwatch</button>
@@ -134,6 +137,12 @@
     <ul id="logList" class="log-list"><li class="log-empty">No sets logged yet.</li></ul>
   </div>
 </section>
+
+<div class="anim-fullscreen" id="animFullscreen" aria-hidden="true">
+  <button class="anim-fullscreen__close" id="animFullscreenClose" aria-label="Close full screen">&times;</button>
+  <div id="animFullscreenStage"></div>
+  <p class="anim-fullscreen__label" id="animFullscreenLabel"></p>
+</div>
 
 <footer class="site-footer">
   <p>Calorie estimates use standard MET values — actual burn varies by intensity, fitness level and body composition.</p>
