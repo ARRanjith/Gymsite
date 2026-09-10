@@ -38,71 +38,71 @@ const EXERCISES = {
 
 const STRENGTH_DB = {
   biceps: { name: "Biceps", icon: MUSCLE_ICONS.biceps, exercises: [
-    { name: "Standing Dumbbell Curl", met: 3.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "curl" },
-    { name: "Barbell Curl",           met: 4.0, recommended: "10–15 min", equip: "barbell",  pose: "standing", anim: "curl" },
-    { name: "Hammer Curl",            met: 3.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "curl" },
-    { name: "Preacher Curl",          met: 3.5, recommended: "8–12 min",  equip: "dumbbell", pose: "standing", anim: "curl" },
-    { name: "Concentration Curl",     met: 3.2, recommended: "8–12 min",  equip: "dumbbell", pose: "standing", anim: "curl" },
-    { name: "Incline Dumbbell Curl",  met: 3.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "curl" },
-    { name: "Chin-Up",                met: 8.0, recommended: "5–10 min",  equip: "bar",        pose: "standing", anim: "bodyup" },
+    { name: "Standing Dumbbell Curl", met: 3.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "curl", gifQuery: "dumbbell curl" },
+    { name: "Barbell Curl",           met: 4.0, recommended: "10–15 min", equip: "barbell",  pose: "standing", anim: "curl", gifQuery: "barbell curl" },
+    { name: "Hammer Curl",            met: 3.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "curl", gifQuery: "hammer curl" },
+    { name: "Preacher Curl",          met: 3.5, recommended: "8–12 min",  equip: "dumbbell", pose: "standing", anim: "curl", gifQuery: "preacher curl" },
+    { name: "Concentration Curl",     met: 3.2, recommended: "8–12 min",  equip: "dumbbell", pose: "standing", anim: "curl", gifQuery: "concentration curl" },
+    { name: "Incline Dumbbell Curl",  met: 3.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "curl", gifQuery: "incline dumbbell curl" },
+    { name: "Chin-Up",                met: 8.0, recommended: "5–10 min",  equip: "bar",        pose: "standing", anim: "bodyup", gifQuery: "chin-up" },
   ]},
   triceps: { name: "Triceps", icon: MUSCLE_ICONS.triceps, exercises: [
-    { name: "Tricep Pushdown",          met: 3.5, recommended: "10–15 min", equip: "cable",     pose: "standing", anim: "pushdown" },
-    { name: "Skull Crushers",           met: 3.5, recommended: "8–12 min",  equip: "barbell",   pose: "lying",    anim: "press" },
-    { name: "Overhead Tricep Extension",met: 3.5, recommended: "10–15 min", equip: "dumbbell",  pose: "standing", anim: "press" },
-    { name: "Close-Grip Bench Press",   met: 5.0, recommended: "10–15 min", equip: "barbell",   pose: "lying",    anim: "press" },
-    { name: "Tricep Dips",              met: 6.0, recommended: "8–12 min",  equip: "bodyweight",pose: "standing", anim: "bodyup" },
-    { name: "Kickback",                 met: 3.2, recommended: "8–12 min",  equip: "dumbbell",  pose: "standing", anim: "kickarm" },
+    { name: "Tricep Pushdown",          met: 3.5, recommended: "10–15 min", equip: "cable",     pose: "standing", anim: "pushdown", gifQuery: "triceps pushdown" },
+    { name: "Skull Crushers",           met: 3.5, recommended: "8–12 min",  equip: "barbell",   pose: "lying",    anim: "press", gifQuery: "skull crusher" },
+    { name: "Overhead Tricep Extension",met: 3.5, recommended: "10–15 min", equip: "dumbbell",  pose: "standing", anim: "press", gifQuery: "overhead triceps extension" },
+    { name: "Close-Grip Bench Press",   met: 5.0, recommended: "10–15 min", equip: "barbell",   pose: "lying",    anim: "press", gifQuery: "close grip bench press" },
+    { name: "Tricep Dips",              met: 6.0, recommended: "8–12 min",  equip: "bodyweight",pose: "standing", anim: "bodyup", gifQuery: "triceps dip" },
+    { name: "Kickback",                 met: 3.2, recommended: "8–12 min",  equip: "dumbbell",  pose: "standing", anim: "kickarm", gifQuery: "triceps kickback" },
   ]},
   chest: { name: "Chest", icon: MUSCLE_ICONS.chest, exercises: [
-    { name: "Bench Press",         met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "lying",    anim: "press" },
-    { name: "Incline Bench Press", met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "lying",    anim: "press" },
-    { name: "Dumbbell Fly",        met: 4.0, recommended: "8–12 min",  equip: "dumbbell",   pose: "lying",    anim: "fly" },
-    { name: "Push-Up",             met: 8.0, recommended: "10–15 min", equip: "bodyweight", pose: "lying",    anim: "pushup" },
-    { name: "Cable Crossover",     met: 4.0, recommended: "10–15 min", equip: "cable",      pose: "standing", anim: "fly" },
-    { name: "Chest Dip",           met: 6.0, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "bodyup" },
+    { name: "Bench Press",         met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "lying",    anim: "press", gifQuery: "barbell bench press" },
+    { name: "Incline Bench Press", met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "lying",    anim: "press", gifQuery: "incline bench press" },
+    { name: "Dumbbell Fly",        met: 4.0, recommended: "8–12 min",  equip: "dumbbell",   pose: "lying",    anim: "fly", gifQuery: "dumbbell fly" },
+    { name: "Push-Up",             met: 8.0, recommended: "10–15 min", equip: "bodyweight", pose: "lying",    anim: "pushup", gifQuery: "push-up" },
+    { name: "Cable Crossover",     met: 4.0, recommended: "10–15 min", equip: "cable",      pose: "standing", anim: "fly", gifQuery: "cable crossover" },
+    { name: "Chest Dip",           met: 6.0, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "bodyup", gifQuery: "chest dip" },
   ]},
   lats: { name: "Lats", icon: MUSCLE_ICONS.lats, exercises: [
-    { name: "Lat Pulldown",           met: 4.0, recommended: "10–15 min", equip: "cable",    pose: "standing", anim: "pushdown" },
-    { name: "Pull-Up",                met: 8.0, recommended: "5–10 min",  equip: "bar",       pose: "standing", anim: "bodyup" },
-    { name: "Straight-Arm Pulldown",  met: 4.0, recommended: "8–12 min",  equip: "cable",    pose: "standing", anim: "pushdown" },
-    { name: "Single-Arm Dumbbell Row",met: 4.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "pull" },
-    { name: "Wide-Grip Pulldown",     met: 4.0, recommended: "10–15 min", equip: "cable",    pose: "standing", anim: "pushdown" },
+    { name: "Lat Pulldown",           met: 4.0, recommended: "10–15 min", equip: "cable",    pose: "standing", anim: "pushdown", gifQuery: "lat pulldown" },
+    { name: "Pull-Up",                met: 8.0, recommended: "5–10 min",  equip: "bar",       pose: "standing", anim: "bodyup", gifQuery: "pull-up" },
+    { name: "Straight-Arm Pulldown",  met: 4.0, recommended: "8–12 min",  equip: "cable",    pose: "standing", anim: "pushdown", gifQuery: "straight arm pulldown" },
+    { name: "Single-Arm Dumbbell Row",met: 4.5, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "pull", gifQuery: "one arm dumbbell row" },
+    { name: "Wide-Grip Pulldown",     met: 4.0, recommended: "10–15 min", equip: "cable",    pose: "standing", anim: "pushdown", gifQuery: "wide grip pulldown" },
   ]},
   back: { name: "Back", icon: MUSCLE_ICONS.back, exercises: [
-    { name: "Barbell Row",     met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "pull" },
-    { name: "Seated Cable Row",met: 4.5, recommended: "10–15 min", equip: "cable",      pose: "standing", anim: "pull" },
-    { name: "Deadlift",        met: 6.0, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "hinge" },
-    { name: "T-Bar Row",       met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "pull" },
-    { name: "Superman",        met: 3.0, recommended: "5–10 min",  equip: "bodyweight", pose: "lying",    anim: "hinge" },
+    { name: "Barbell Row",     met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "pull", gifQuery: "barbell row" },
+    { name: "Seated Cable Row",met: 4.5, recommended: "10–15 min", equip: "cable",      pose: "standing", anim: "pull", gifQuery: "seated cable row" },
+    { name: "Deadlift",        met: 6.0, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "hinge", gifQuery: "barbell deadlift" },
+    { name: "T-Bar Row",       met: 5.0, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "pull", gifQuery: "t-bar row" },
+    { name: "Superman",        met: 3.0, recommended: "5–10 min",  equip: "bodyweight", pose: "lying",    anim: "hinge", gifQuery: "superman" },
   ]},
   legs: { name: "Legs", icon: MUSCLE_ICONS.legs, exercises: [
-    { name: "Squat",         met: 5.0, recommended: "10–20 min", equip: "barbell",    pose: "standing", anim: "squat" },
-    { name: "Leg Press",     met: 5.0, recommended: "10–15 min", equip: "bodyweight", pose: "standing", anim: "squat" },
-    { name: "Lunges",        met: 4.0, recommended: "10–15 min", equip: "dumbbell",   pose: "standing", anim: "squat" },
-    { name: "Leg Extension", met: 3.5, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "kickleg" },
-    { name: "Leg Curl",      met: 3.5, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "kickleg" },
-    { name: "Calf Raise",    met: 3.0, recommended: "8–12 min",  equip: "dumbbell",   pose: "standing", anim: "kickleg" },
+    { name: "Squat",         met: 5.0, recommended: "10–20 min", equip: "barbell",    pose: "standing", anim: "squat", gifQuery: "barbell squat" },
+    { name: "Leg Press",     met: 5.0, recommended: "10–15 min", equip: "bodyweight", pose: "standing", anim: "squat", gifQuery: "leg press" },
+    { name: "Lunges",        met: 4.0, recommended: "10–15 min", equip: "dumbbell",   pose: "standing", anim: "squat", gifQuery: "dumbbell lunge" },
+    { name: "Leg Extension", met: 3.5, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "kickleg", gifQuery: "leg extension" },
+    { name: "Leg Curl",      met: 3.5, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "kickleg", gifQuery: "leg curl" },
+    { name: "Calf Raise",    met: 3.0, recommended: "8–12 min",  equip: "dumbbell",   pose: "standing", anim: "kickleg", gifQuery: "calf raise" },
   ]},
   abs: { name: "Abs", icon: MUSCLE_ICONS.abs, exercises: [
-    { name: "Crunch",          met: 3.0, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "crunch" },
-    { name: "Plank",           met: 4.0, recommended: "3–8 min",  equip: "bodyweight", pose: "lying", anim: "hold" },
-    { name: "Sit-Up",          met: 3.5, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "crunch" },
-    { name: "Leg Raise",       met: 3.5, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "legraise" },
-    { name: "Russian Twist",   met: 4.0, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "twist" },
-    { name: "Bicycle Crunch",  met: 4.5, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "crunch" },
+    { name: "Crunch",          met: 3.0, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "crunch", gifQuery: "crunch" },
+    { name: "Plank",           met: 4.0, recommended: "3–8 min",  equip: "bodyweight", pose: "lying", anim: "hold", gifQuery: "plank" },
+    { name: "Sit-Up",          met: 3.5, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "crunch", gifQuery: "sit-up" },
+    { name: "Leg Raise",       met: 3.5, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "legraise", gifQuery: "leg raise" },
+    { name: "Russian Twist",   met: 4.0, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "twist", gifQuery: "russian twist" },
+    { name: "Bicycle Crunch",  met: 4.5, recommended: "5–10 min", equip: "bodyweight", pose: "lying", anim: "crunch", gifQuery: "bicycle crunch" },
   ]},
   glutes: { name: "Glutes", icon: MUSCLE_ICONS.glutes, exercises: [
-    { name: "Hip Thrust",           met: 4.5, recommended: "10–15 min", equip: "barbell",    pose: "lying",    anim: "hiplift" },
-    { name: "Glute Bridge",         met: 3.5, recommended: "8–12 min",  equip: "bodyweight", pose: "lying",    anim: "hiplift" },
-    { name: "Bulgarian Split Squat",met: 5.0, recommended: "10–15 min", equip: "dumbbell",   pose: "standing", anim: "squat" },
-    { name: "Cable Kickback",       met: 3.5, recommended: "8–12 min",  equip: "cable",      pose: "standing", anim: "kickleg" },
-    { name: "Romanian Deadlift",    met: 5.5, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "hinge" },
-    { name: "Donkey Kick",          met: 3.0, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "kickleg" },
+    { name: "Hip Thrust",           met: 4.5, recommended: "10–15 min", equip: "barbell",    pose: "lying",    anim: "hiplift", gifQuery: "hip thrust" },
+    { name: "Glute Bridge",         met: 3.5, recommended: "8–12 min",  equip: "bodyweight", pose: "lying",    anim: "hiplift", gifQuery: "glute bridge" },
+    { name: "Bulgarian Split Squat",met: 5.0, recommended: "10–15 min", equip: "dumbbell",   pose: "standing", anim: "squat", gifQuery: "bulgarian split squat" },
+    { name: "Cable Kickback",       met: 3.5, recommended: "8–12 min",  equip: "cable",      pose: "standing", anim: "kickleg", gifQuery: "cable kickback" },
+    { name: "Romanian Deadlift",    met: 5.5, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "hinge", gifQuery: "romanian deadlift" },
+    { name: "Donkey Kick",          met: 3.0, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "kickleg", gifQuery: "donkey kick" },
   ]},
   shoulders: { name: "Shoulders", icon: MUSCLE_ICONS.shoulders, exercises: [
-    { name: "Shoulder Press",  met: 4.0, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "press" },
-    { name: "Lateral Raises",  met: 3.0, recommended: "8–12 min",  equip: "dumbbell", pose: "standing", anim: "fly" },
+    { name: "Shoulder Press",  met: 4.0, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "press", gifQuery: "shoulder press" },
+    { name: "Lateral Raises",  met: 3.0, recommended: "8–12 min",  equip: "dumbbell", pose: "standing", anim: "fly", gifQuery: "lateral raise" },
   ]},
 };
 
@@ -114,6 +114,8 @@ let state = {
   heightUnit: "cm",
   selectedMuscle: null,
   activeExercise: null,
+  activeGifUrl: null,
+  gifRequestToken: 0,
   seconds: 0,
   running: false,
   intervalId: null,
@@ -404,6 +406,80 @@ function buildRigSVG(exercise, muscleKey) {
   `;
 }
 
+/* ---------- Live exercise GIF lookup (best-effort, with fallback) ----------
+   Pulls real demonstration GIFs from a free public ExerciseDB mirror.
+   NOTE: this API's own maintainers mark it "exploration only" — not
+   guaranteed uptime. Every call is wrapped so a failure just falls back
+   to the built-in SVG animation; the site never breaks either way. */
+const GIF_API_BASE = "https://oss.exercisedb.dev/api/v1/exercises";
+const GIF_CACHE_PREFIX = "fitforge_gif_v1:";
+const GIF_CACHE_TTL_MS = 1000 * 60 * 60 * 24 * 7; // 7 days
+const GIF_MAX_PAGES = 15; // bounded search cost per exercise
+
+function getCachedGif(query) {
+  try {
+    const raw = localStorage.getItem(GIF_CACHE_PREFIX + query);
+    if (!raw) return undefined;
+    const entry = JSON.parse(raw);
+    if (Date.now() - entry.time > GIF_CACHE_TTL_MS) return undefined;
+    return entry.url; // may be null (cached "not found") or a string
+  } catch (e) {
+    return undefined;
+  }
+}
+
+function setCachedGif(query, url) {
+  try {
+    localStorage.setItem(GIF_CACHE_PREFIX + query, JSON.stringify({ url, time: Date.now() }));
+  } catch (e) {
+    /* localStorage unavailable — skip caching silently */
+  }
+}
+
+async function fetchExerciseGif(query) {
+  if (!query) return null;
+  const cached = getCachedGif(query);
+  if (cached !== undefined) return cached;
+
+  const words = query.toLowerCase().split(" ").filter((w) => w.length > 2);
+  let cursor = null;
+  let prevCursor = null;
+
+  try {
+    for (let page = 0; page < GIF_MAX_PAGES; page++) {
+      const url = cursor
+        ? `${GIF_API_BASE}?cursor=${encodeURIComponent(cursor)}`
+        : GIF_API_BASE;
+
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 5000);
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(timeout);
+      if (!res.ok) break;
+      const json = await res.json();
+      const items = (json && json.data) || [];
+
+      const match = items.find((item) => {
+        const name = (item.name || "").toLowerCase();
+        return words.every((w) => name.includes(w)) || words.some((w) => w.length > 4 && name.includes(w));
+      });
+      if (match && match.gifUrl) {
+        setCachedGif(query, match.gifUrl);
+        return match.gifUrl;
+      }
+
+      prevCursor = cursor;
+      cursor = json && json.meta && json.meta.nextCursor;
+      if (!cursor || cursor === prevCursor || !(json && json.meta && json.meta.hasNextPage)) break;
+    }
+  } catch (e) {
+    // network error, CORS block, timeout — fall through to null
+  }
+
+  setCachedGif(query, null);
+  return null;
+}
+
 function openPanel(exercise) {
   stopTimer();
   state.activeExercise = exercise;
@@ -426,6 +502,20 @@ function openPanel(exercise) {
   } else {
     animStageInner.innerHTML = "";
     animStage.classList.add("is-hidden");
+  }
+  state.activeGifUrl = null;
+  const myToken = ++state.gifRequestToken;
+  if (exercise.anim && exercise.gifQuery) {
+    fetchExerciseGif(exercise.gifQuery).then((url) => {
+      if (state.gifRequestToken !== myToken) return; // panel moved on, ignore stale result
+      if (url) {
+        state.activeGifUrl = url;
+        animStageInner.innerHTML = `
+          <span class="anim-gif-badge">Live demo</span>
+          <img class="anim-gif" src="${url}" alt="${exercise.name} demonstration" loading="lazy">
+        `;
+      }
+    });
   }
   bestTimeValue.textContent = exercise.recommended;
   timerDisplay.textContent = "00:00";
@@ -483,8 +573,16 @@ document.addEventListener("keydown", (e) => {
 
 function openFullscreen() {
   if (!state.activeExercise || !state.activeExercise.anim) return;
-  animFullscreenStage.innerHTML = buildRigSVG(state.activeExercise, state.selectedMuscle);
-  animFullscreenStage.querySelector(".rig").classList.add("rig--large");
+  if (state.activeGifUrl) {
+    animFullscreenStage.innerHTML = `
+      <span class="anim-gif-badge">Live demo</span>
+      <img class="anim-gif anim-gif--large" src="${state.activeGifUrl}" alt="${state.activeExercise.name} demonstration">
+    `;
+  } else {
+    animFullscreenStage.innerHTML = buildRigSVG(state.activeExercise, state.selectedMuscle);
+    const rigEl = animFullscreenStage.querySelector(".rig");
+    if (rigEl) rigEl.classList.add("rig--large");
+  }
   animFullscreenLabel.textContent = state.activeExercise.name;
   animFullscreen.classList.add("is-open");
   animFullscreen.setAttribute("aria-hidden", "false");
