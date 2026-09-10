@@ -19,11 +19,10 @@ body{
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(600px 400px at 12% -5%, rgba(214,255,63,0.10), transparent 60%),
-    radial-gradient(500px 380px at 100% 15%, rgba(255,90,54,0.10), transparent 60%),
-    radial-gradient(800px 600px at 50% 100%, rgba(214,255,63,0.05), transparent 65%),
-    linear-gradient(180deg, #12160F 0%, var(--bg) 40%),
-    var(--bg);
+    radial-gradient(700px 500px at 15% -5%, rgba(214,255,63,0.16), transparent 60%),
+    radial-gradient(600px 460px at 100% 10%, rgba(255,90,54,0.16), transparent 60%),
+    radial-gradient(900px 700px at 50% 100%, rgba(95,168,211,0.10), transparent 65%),
+    linear-gradient(180deg, #262C21 0%, #181D15 45%, var(--bg) 100%);
   background-attachment: fixed;
   color: var(--text);
   font-family: 'Work Sans', sans-serif;
@@ -36,8 +35,8 @@ body::before{
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(242,240,230,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(242,240,230,0.035) 1px, transparent 1px);
+    linear-gradient(rgba(242,240,230,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242,240,230,0.05) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
   z-index: 0;
@@ -69,7 +68,7 @@ button{ cursor: pointer; }
 }
 .hero__mark{
   font-family: 'Anton', sans-serif;
-  font-size: 17px;
+  font-size: 26px;
   letter-spacing: 0.03em;
   color: var(--lime);
   text-shadow: 0 0 18px rgba(214,255,63,0.35);
@@ -81,8 +80,8 @@ button{ cursor: pointer; }
 .hero__headline{
   font-family: 'Anton', sans-serif;
   font-weight: 400;
-  font-size: clamp(40px, 9vw, 76px);
-  line-height: 0.96;
+  font-size: clamp(26px, 5.5vw, 42px);
+  line-height: 1.05;
   margin: 0 0 20px;
   letter-spacing: 0.005em;
 }
@@ -496,7 +495,6 @@ main{ max-width: 780px; margin: 0 auto; padding: 32px 24px 64px; }
   text-align: center;
   padding: 0 24px;
 }
-
 
 /* ---------- Timer panel ---------- */
 .panel-backdrop{

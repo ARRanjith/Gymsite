@@ -22,6 +22,7 @@ const MUSCLE_ICONS = {
   legs: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M10 8h4"/><path d="M10.5 8l-1.5 6-3 6"/><path d="M13.5 8l1.5 6-1 6"/></svg>`,
   abs: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="4" width="8" height="16" rx="3"/><path d="M8 9h8"/><path d="M8 13.5h8"/><path d="M12 4v16"/></svg>`,
   glutes: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-4 0-7 3-7 7 0 4 3 7 7 7s7-3 7-7c0-4-3-7-7-7z"/><path d="M12 5v14"/></svg>`,
+  shoulders: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.8"/><path d="M12 7v3"/><path d="M4 13c0-3 3-4 5-3"/><path d="M20 13c0-3-3-4-5-3"/><path d="M4 13c-1 3 1 5 3 4"/><path d="M20 13c1 3-1 5-3 4"/></svg>`,
 };
 
 const EXERCISES = {
@@ -98,6 +99,10 @@ const STRENGTH_DB = {
     { name: "Cable Kickback",       met: 3.5, recommended: "8–12 min",  equip: "cable",      pose: "standing", anim: "kickleg" },
     { name: "Romanian Deadlift",    met: 5.5, recommended: "10–15 min", equip: "barbell",    pose: "standing", anim: "hinge" },
     { name: "Donkey Kick",          met: 3.0, recommended: "8–12 min",  equip: "bodyweight", pose: "standing", anim: "kickleg" },
+  ]},
+  shoulders: { name: "Shoulders", icon: MUSCLE_ICONS.shoulders, exercises: [
+    { name: "Shoulder Press",  met: 4.0, recommended: "10–15 min", equip: "dumbbell", pose: "standing", anim: "press" },
+    { name: "Lateral Raises",  met: 3.0, recommended: "8–12 min",  equip: "dumbbell", pose: "standing", anim: "fly" },
   ]},
 };
 
@@ -339,6 +344,7 @@ const HIGHLIGHT_ZONES = {
   legs:    { cx: 60, cy: 108, rx: 16, ry: 24 },
   abs:     { cx: 60, cy: 74,  rx: 13, ry: 16 },
   glutes:  { cx: 60, cy: 92,  rx: 18, ry: 14 },
+  shoulders: { cx: 74, cy: 50, rx: 9, ry: 9 },
 };
 
 function buildRigSVG(exercise, muscleKey) {
